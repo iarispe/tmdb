@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="peliculas">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Pelis Online</title>
+  </head>
+  <body>
+    
+    <header style="background-color:rgba(38,43,54,1);">
+      <div id="buscador" class="container">
+        <div class="input-group">
+          <input id="input" type="text" class="form-control" placeholder="Nombre de pelicula" onkeypress="if (event.keyCode==13){ getMovies(); }">
+          <span class="input-group-btn">
+            <button id="buscar" style="background-color: rgb(144,12,63);" class="btn btn-secondary" type="button" onclick="getMovies();">Buscar</button>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <section id="secMv" ng-controller="movieList" class="container">
+      <div class="card-deck">
+        <span ng-hide="json.data.total_results != 0" ng-show="json.data.total_results == 0">No se encontraron los resultados</span>
+        <div class="d-flex rounded-left mvContainer" ng-repeat="pelicula in json.data.results" style="overflow:hidden;">
+          <img class="mvImg" ng-src="{{posterImg + pelicula.poster_path}}" alt="Imagen no disponible">
+          <div class="mvInfo d-flex align-items-start flex-column">
+            <div class="mb-auto p-2" style="overflow:hidden; padding: .5rem .5rem 0px .5rem!important; margin-bottom: .3rem!important;">
+              <h6>{{pelicula.title}}</h6>
+              <p><small>{{pelicula.release_date}}</small></p>
+              <p>{{pelicula.overview.substring(0,180) + "..."}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>

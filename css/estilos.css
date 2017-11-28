@@ -1,0 +1,22 @@
+/*BODY & CABECERA*/
+body{font-size: 15px; line-height: 1.1em; background-color: rgba(200,200,200,.7);}
+div#buscador{padding-top: 4em;}
+input#input{border: 0!important; border-radius: 5px 0px 0px 0px!important;}
+button#buscar{cursor: pointer; border-radius: 0px 5px 0px 0px!important; border: 0!important;}
+/*MOVIE SECTION*/
+section#secMv{margin-top: 2em;}
+.card-deck{margin-left: 0px; margin-right: 0px;}
+.mvImg{width: 9rem!important; cursor: pointer; background-color: rgb(156,156,156);}
+.mvInfo{margin-left: 3px;}
+
+@media (min-width:768px) {
+  .mvContainer{width: 48%;  height: 14rem; margin: 6px; background-color: #ffffff; box-shadow: 0px 1px 1px 0px #999;}
+}
+@media (min-width:400px) and (max-width:767px) {
+  .mvContainer{width: 100%; height: 16rem; margin-bottom: 8px; background-color: #ffffff; box-shadow: 0px 1px 1px 0px #999;}
+  .mvImg{width: 10rem!important;}
+}
+@media (max-width:399px) {
+  .mvContainer{width: 100%; height: 10rem; margin-bottom: 5px; background-color: #ffffff; box-shadow: 0px 1px 1px 0px #999; font-size: 12px;}
+  .mvImg{width: 6rem!important;}
+}
